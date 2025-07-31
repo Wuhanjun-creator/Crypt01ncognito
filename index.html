@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: "Courier New", monospace;
+    }
+    #welcome {
+      font-size: 2.5em;
+      border-right: .1em solid #0f0;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: blink 0.7s step-end infinite;
+    }
+    @keyframes blink {
+      from, to { border-color: transparent; }
+      50% { border-color: #0f0; }
+    }
+  </style>
+</head>
+<body>
+  <div id="welcome"></div>
+  <script>
+    const text = "Welcome to Crypt01incognito";
+    let i = 0;
+    const speed = 100;
+
+    function typeWriter() {
+      if (i < text.length) {
+        document.getElementById('welcome').textContent += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+      } else {
+        document.getElementById('welcome').style.border = 'none';
+      }
+    }
+
+    window.onload = typeWriter;
+  </script>
+</body>
+</html>
